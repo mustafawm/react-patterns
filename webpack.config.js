@@ -32,10 +32,6 @@ module.exports = {
     new webpack.NamedModulesPlugin()
   ],
 
-  resolve: {
-    extensions: ['.js', '.jsx', '.json']
-  },
-
   stats: {
     colors: true,
     reasons: true,

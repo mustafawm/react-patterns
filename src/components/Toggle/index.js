@@ -3,7 +3,6 @@ import {
   any,
   func,
 } from 'prop-types';
-// import Switch from './Switch';
 import ToggleOn from './ToggleOn';
 import ToggleOff from './ToggleOff';
 import ToggleButton from './ToggleButton';
@@ -15,10 +14,12 @@ export default class Toggle extends React.Component {
   state = { on: false };
 
   toggle = () => {
+    const { on } = this.state;
+
     this.setState(
-      ({on}) => ({on: !on}),
+      () => ({on: !on}),
       () => {
-        this.props.onToggle(this.state.on)
+        this.props.onToggle(on);
       },
     );
   };
@@ -38,10 +39,10 @@ export default class Toggle extends React.Component {
 
 Toggle.propTypes = {
   onToggle: func,
-  children: any
+  children: any,
 };
 
 Toggle.defaultProps = {
   onToggle: ()=>{},
-  children: {}
+  children: {},
 };

@@ -1,3 +1,18 @@
-export default function ToggleOn({on, children}) {
-  return on ? children : null;
-}
+import {
+  any,
+  bool,
+} from 'prop-types';
+
+const ToggleOn = ({on, children}) => on ? children : null;
+
+ToggleOn.propTypes = {
+  on: bool,
+  children: any,
+};
+
+ToggleOn.defaultProps = {
+  on: false,
+  children: null,
+};
+
+export default ToggleOn;

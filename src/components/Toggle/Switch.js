@@ -17,12 +17,12 @@ const Switch = ({on, className, ...props}) =>
 
 Switch.propTypes = {
   on: bool,
-  className: string
+  className: string,
 };
 
 Switch.defaultProps = {
   on: false,
-  className: ''
+  className: '',
 };
 
 

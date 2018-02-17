@@ -5,16 +5,21 @@ import {
 } from 'prop-types';
 import Switch from './Switch';
 
-const ToggleButton = ({on, toggle, ...props}) => <Switch on={on} onClick={toggle} {...props} />;
+const ToggleButton = ({on, toggle, ...props}) =>
+  (<Switch
+    on={on}
+    onClick={toggle}
+    {...props}
+  />);
 
 ToggleButton.propTypes = {
   on: bool,
-  toggle: func
+  toggle: func,
 };
 
 ToggleButton.defaultProps = {
   on: false,
-  toggle: () => {}
+  toggle: ()=>{},
 };
 
 

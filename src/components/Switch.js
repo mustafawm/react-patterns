@@ -1,7 +1,11 @@
 import React from 'react';
+import {
+  string,
+  bool,
+} from 'prop-types';
 
-export default function Switch({on, className = '', ...props}) {
-  return (
+const Switch = ({on, className, ...props}) =>
+  (
     <div className="toggle">
       <input className="toggle-input" type="checkbox" />
 
@@ -12,4 +16,16 @@ export default function Switch({on, className = '', ...props}) {
       />
     </div>
   );
-}
+
+
+Switch.propTypes = {
+  on: bool,
+  className: string
+};
+
+Switch.defaultProps = {
+  on: false,
+  className: ''
+};
+
+export default Switch;

@@ -1,10 +1,11 @@
 import React from 'react';
+import {
+  func,
+} from 'prop-types';
 import Switch from './Switch';
 
 
 export default class Toggle extends React.Component {
-  static defaultProps = {onToggle: () => {}};
-
   state = {on: false};
 
   toggle = () => {
@@ -24,3 +25,12 @@ export default class Toggle extends React.Component {
     );
   }
 }
+
+
+Toggle.propTypes = {
+  onToggle: func
+};
+
+Toggle.defaultProps = {
+  onToggle: ()=>{}
+};

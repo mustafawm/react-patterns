@@ -1,9 +1,8 @@
 import React from 'react';
 import Toggle from './Toggle';
 
-
-export default function App() {
-  return (
+const App = () =>
+  (
     <div className='app-container'>
       <Toggle
         onToggle={on => console.log('toggle', on)}
@@ -14,4 +13,5 @@ export default function App() {
       </Toggle>
     </div>
   );
-}
+
+export default App;

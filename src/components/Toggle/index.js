@@ -1,15 +1,18 @@
 import React from 'react';
-import Switch from './Switch';
+import {
+  any,
+  func,
+} from 'prop-types';
+// import Switch from './Switch';
 import ToggleOn from './ToggleOn';
 import ToggleOff from './ToggleOff';
 import ToggleButton from './ToggleButton';
 
 export default class Toggle extends React.Component {
-  state = { on: false };
   static On = ToggleOn;
   static Off = ToggleOff;
   static Button = ToggleButton;
-  static defaultProps = { onToggle: () => {} };
+  state = { on: false };
 
   toggle = () => {
     this.setState(
@@ -32,3 +35,13 @@ export default class Toggle extends React.Component {
     return (<span>{children}</span>);
   }
 }
+
+Toggle.propTypes = {
+  onToggle: func,
+  children: any
+};
+
+Toggle.defaultProps = {
+  onToggle: ()=>{},
+  children: {}
+};

@@ -2,16 +2,35 @@ import React from 'react';
 import {
   any,
   func,
+  shape,
+  bool,
 } from 'prop-types';
+import {
+  TOGGLE_CONTEXT,
+} from '../_CONSTANTS';
 import ToggleOn from './ToggleOn';
 import ToggleOff from './ToggleOff';
 import ToggleButton from './ToggleButton';
+
 
 export default class Toggle extends React.Component {
   static On = ToggleOn;
   static Off = ToggleOff;
   static Button = ToggleButton;
+  static childContextTypes = {
+    [TOGGLE_CONTEXT]: shape({ on: bool }).isRequired,
+  };
+
   state = { on: false };
+
+  getChildContext() {
+    return {
+      [TOGGLE_CONTEXT]: {
+        on: this.state.on,
+        toggle: this.toggle,
+      },
+    };
+  }
 
   toggle = () => {
     const { on } = this.state;
@@ -25,15 +44,7 @@ export default class Toggle extends React.Component {
   };
 
   render() {
-    const children = React.Children.map(
-      this.props.children,
-      child => React.cloneElement(child, {
-        on: this.state.on,
-        toggle: this.toggle
-      })
-    );
-
-    return (<span>{children}</span>);
+    return (<span>{this.props.children}</span>);
   }
 }
 

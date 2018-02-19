@@ -2,24 +2,24 @@ import React from 'react';
 import {
   bool,
   func,
+  shape,
 } from 'prop-types';
+import {
+  TOGGLE_CONTEXT,
+} from '../_CONSTANTS';
 import Switch from './Switch';
 
-const ToggleButton = ({on, toggle, ...props}) =>
-  (<Switch
-    on={on}
-    onClick={toggle}
-    {...props}
-  />);
+const ToggleButton = (props, context) => {
+  const { on, toggle } = context[TOGGLE_CONTEXT];
 
-ToggleButton.propTypes = {
-  on: bool,
-  toggle: func,
+  return ( <Switch on={on} onClick={toggle} {...props} />);
 };
 
-ToggleButton.defaultProps = {
-  on: false,
-  toggle: ()=>{},
+ToggleButton.contextTypes = {
+  [TOGGLE_CONTEXT]: shape({
+    on: bool,
+    toggle: func,
+  }).isRequired,
 };
 
 

@@ -7,9 +7,13 @@ const App = () =>
       <Toggle
         onToggle={on => console.log('toggle', on)}
       >
-        <Toggle.On> It's on :)</Toggle.On>
-        <Toggle.Off> It's off :( </Toggle.Off>
+        <h2>
+          <Toggle.On> It's on :)</Toggle.On>
+        </h2>
         <Toggle.Button />
+        <small>
+          <Toggle.Off> It's off :( </Toggle.Off>
+        </small>
       </Toggle>
     </div>
   );

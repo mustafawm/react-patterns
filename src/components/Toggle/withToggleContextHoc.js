@@ -11,6 +11,8 @@ export default function withToggle(Component) {
     return (<Component toggle={toggleContext} {...props} />);
   }
 
+  Wrapper.displayName = `withToggle(${Component.displayName || Component.name})`;
+
   Wrapper.contextTypes = {
     [TOGGLE_CONTEXT]: object.isRequired,
   };

@@ -4,7 +4,7 @@ import {
 } from 'prop-types';
 import withToggle from './withToggleContextHoc';
 
-const ToggleOff = ({ children, on }) => on ? null : children;
+const ToggleOff = ({ children, toggle: { on } }) => on ? null : children;
 
 ToggleOff.propTypes = {
   on: bool,

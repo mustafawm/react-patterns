@@ -8,7 +8,7 @@ export default function withToggle(Component) {
   function Wrapper(props, context) {
     const toggleContext = context[TOGGLE_CONTEXT];
 
-    return (<Component {...toggleContext} {...props} />);
+    return (<Component toggle={toggleContext} {...props} />);
   }
 
   Wrapper.contextTypes = {

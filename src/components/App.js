@@ -1,6 +1,8 @@
 import React from 'react';
 import Toggle from './Toggle';
-import withToggle from './Toggle/withToggleContextHoc';
+import additions from './additions';
+
+const { MyButton, MyEventButton } = additions;
 
 const App = () =>
   (
@@ -16,18 +18,14 @@ const App = () =>
         </small>
         <Toggle.Button />
         <hr/>
-        <CustomButton/>
+        <MyButton />
+        <hr/>
+        <MyEventButton
+          evt='onClick'
+          on={e => alert(e.type)}
+        />
       </Toggle>
     </div>
   );
 
 export default App;
-
-
-const CustomButton = withToggle(
-  ({ on, toggle }) => {
-  console.log(on, toggle);
-  return <button onClick={toggle}>
-    {on ? 'on' : 'off'}
-  </button>
-})

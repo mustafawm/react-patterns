@@ -1,12 +1,13 @@
 import React from 'react';
 import {
+  shape,
   bool,
   func,
   string,
 } from 'prop-types';
 import withToggle from './withToggleContextHoc';
 
-const ToggleButton = ({ on, toggle, className, ...props }) =>
+const ToggleButton = ({ toggle: { on, toggle }, className, ...props }) =>
   <div className='toggle'>
     <input className='toggle-input' type='checkbox' />
 
@@ -19,14 +20,18 @@ const ToggleButton = ({ on, toggle, className, ...props }) =>
   </div>
 
 ToggleButton.propTypes = {
-  on: bool,
-  toggle: func,
+  toggle: shape({
+    on: bool,
+    toggle: func,
+  }),
   className: string,
 };
 
 ToggleButton.defaultProps = {
-  on: false,
-  toggle: ()=>{},
+  toggle: {
+    on: false,
+    toggle: ()=>{},
+  },
   className: '',
 };
 

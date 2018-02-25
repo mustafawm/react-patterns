@@ -1,5 +1,6 @@
 import React from 'react';
 import Toggle from './Toggle';
+import withToggle from './Toggle/withToggleContextHoc';
 
 const App = () =>
   (
@@ -7,15 +8,26 @@ const App = () =>
       <Toggle
         onToggle={on => console.log('toggle', on)}
       >
-        <h2>
+        <b>
           <Toggle.On> It's on :)</Toggle.On>
-        </h2>
-        <Toggle.Button />
+        </b>
         <small>
-          <Toggle.Off> It's off :( </Toggle.Off>
+          <Toggle.Off> It's off ¯\_(ツ)_/¯</Toggle.Off>
         </small>
+        <Toggle.Button />
+        <hr/>
+        <CustomButton/>
       </Toggle>
     </div>
   );
 
 export default App;
+
+
+const CustomButton = withToggle(
+  ({ on, toggle }) => {
+  console.log(on, toggle);
+  return <button onClick={toggle}>
+    {on ? 'on' : 'off'}
+  </button>
+})

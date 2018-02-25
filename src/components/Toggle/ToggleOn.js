@@ -1,18 +1,12 @@
 import {
   any,
   bool,
-  shape,
 } from 'prop-types';
-import {
-  TOGGLE_CONTEXT,
-} from '../_CONSTANTS';
+import withToggle from './withToggleContextHoc';
 
-const ToggleOn = ({ children }, context) =>
-  context[TOGGLE_CONTEXT].on ? children : null;
 
-ToggleOn.contextTypes = {
-  [TOGGLE_CONTEXT]: shape({ on: bool }).isRequired,
-};
+const ToggleOn = ({ children, on }) => on ? children : null;
+
 
 ToggleOn.propTypes = {
   on: bool,
@@ -24,4 +18,4 @@ ToggleOn.defaultProps = {
   children: null,
 };
 
-export default ToggleOn;
+export default withToggle(ToggleOn);

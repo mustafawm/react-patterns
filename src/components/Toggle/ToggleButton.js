@@ -2,25 +2,33 @@ import React from 'react';
 import {
   bool,
   func,
-  shape,
+  string,
 } from 'prop-types';
-import {
-  TOGGLE_CONTEXT,
-} from '../_CONSTANTS';
-import Switch from './Switch';
+import withToggle from './withToggleContextHoc';
 
-const ToggleButton = (props, context) => {
-  const { on, toggle } = context[TOGGLE_CONTEXT];
+const ToggleButton = ({ on, toggle, className, ...props }) =>
+  <div className='toggle'>
+    <input className='toggle-input' type='checkbox' />
 
-  return ( <Switch on={on} onClick={toggle} {...props} />);
+    <button
+      {...props}
+      onClick={toggle}
+      aria-expanded={on}
+      className={`${className} toggle-btn ${on ? 'toggle-btn-on' : 'toggle-btn-off'}`}
+    />
+  </div>
+
+ToggleButton.propTypes = {
+  on: bool,
+  toggle: func,
+  className: string,
 };
 
-ToggleButton.contextTypes = {
-  [TOGGLE_CONTEXT]: shape({
-    on: bool,
-    toggle: func,
-  }).isRequired,
+ToggleButton.defaultProps = {
+  on: false,
+  toggle: ()=>{},
+  className: '',
 };
 
 
-export default ToggleButton;
+export default withToggle(ToggleButton);

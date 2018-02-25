@@ -2,8 +2,7 @@ import React from 'react';
 import {
   any,
   func,
-  shape,
-  bool,
+  object,
 } from 'prop-types';
 import {
   TOGGLE_CONTEXT,
@@ -18,7 +17,7 @@ export default class Toggle extends React.Component {
   static Off = ToggleOff;
   static Button = ToggleButton;
   static childContextTypes = {
-    [TOGGLE_CONTEXT]: shape({ on: bool }).isRequired,
+    [TOGGLE_CONTEXT]: object.isRequired,
   };
 
   state = { on: false };
@@ -55,5 +54,5 @@ Toggle.propTypes = {
 
 Toggle.defaultProps = {
   onToggle: ()=>{},
-  children: {},
+  children: null,
 };

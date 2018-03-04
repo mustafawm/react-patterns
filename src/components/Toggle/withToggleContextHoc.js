@@ -21,5 +21,7 @@ export default function withToggle(Component) {
     [TOGGLE_CONTEXT]: object.isRequired,
   };
 
+  Wrapper.WrappedComponent = Component;
+
   return Wrapper;
 };

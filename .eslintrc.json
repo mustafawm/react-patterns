@@ -26,7 +26,8 @@
     "react/jsx-filename-extension": 0,
     "react/forbid-prop-types": 0,
     "react/no-unescaped-entities": 0,
-    "no-return-assign": 0
+    "no-return-assign": 0,
+    "no-useless-concat": 0
   },
   "parser": "babel-eslint",
 	"parserOptions": {

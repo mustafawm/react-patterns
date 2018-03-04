@@ -2,6 +2,7 @@ import React from 'react';
 import {
   object,
 } from 'prop-types';
+import hoistNonReactStatics from 'hoist-non-react-statics';
 import { TOGGLE_CONTEXT } from './../_CONSTANTS';
 
 export default function withToggle(Component) {
@@ -23,5 +24,5 @@ export default function withToggle(Component) {
 
   Wrapper.WrappedComponent = Component;
 
-  return Wrapper;
+  return hoistNonReactStatics(Wrapper, Component);
 };

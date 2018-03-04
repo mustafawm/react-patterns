@@ -3,7 +3,11 @@ import withToggle from './Toggle/withToggleContextHoc';
 
 
 class MyButton extends React.Component {
-  focus = () => this.button.focus();
+  static ToggleMessage = withToggle(
+    ({toggle: {on}}) => on ? 'Warning: button is on' : null
+  )
+
+    focus = () => this.button.focus();
 
   render() {
     const { toggle: {on, toggle} } = this.props;

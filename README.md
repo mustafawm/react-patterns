@@ -1,5 +1,11 @@
 # React Components Patterns
 
+- compound components
+- context
+- HoC
+- namespace
+- HoC w refs
+- HoC testing
+- hoist-non-react-statics
+- render props
 
-
-Following [@Kent C. Dodd](https://twitter.com/kentcdodds)'s [course](https://egghead.io/courses/advanced-react-component-patterns)

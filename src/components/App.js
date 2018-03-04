@@ -8,7 +8,7 @@ const App = () =>
   (
     <div className='app-container'>
       <Toggle
-        onToggle={on => console.log('toggle', on)}
+        onToggle={on => on ? this.myBtn.focus() : null }
       >
         <b>
           <Toggle.On> It's on :)</Toggle.On>
@@ -18,7 +18,9 @@ const App = () =>
         </small>
         <Toggle.Button />
         <hr/>
-        <MyButton />
+        <MyButton
+          innerRef={myBtn => (this.myBtn = myBtn)}
+        />
         <hr/>
         <MyEventButton
           evt='onClick'

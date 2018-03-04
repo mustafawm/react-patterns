@@ -5,10 +5,14 @@ import {
 import { TOGGLE_CONTEXT } from './../_CONSTANTS';
 
 export default function withToggle(Component) {
-  function Wrapper(props, context) {
+  function Wrapper({innerRef, ...props}, context) {
     const toggleContext = context[TOGGLE_CONTEXT];
 
-    return (<Component toggle={toggleContext} {...props} />);
+    return (<Component
+      toggle={toggleContext}
+      ref={innerRef}
+      {...props}
+    />);
   }
 
   Wrapper.displayName = `withToggle(${Component.displayName || Component.name})`;

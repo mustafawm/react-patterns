@@ -26,8 +26,7 @@ export default function test() {
   if ( !button.innerHTML.includes('on') ) {
     throw new Error(`content is wrong: ${button.innerHTML}`);
   } else {
-    console.log('%ctest passed' + `%c: ${button.outerHTML} content includes 'on'`,
-    'color: yellowgreen', '');
+    console.log('%ctest passed', 'color: yellowgreen; font-weight: bold;', `: ${button.outerHTML} content includes 'on'`);
   }
 
   button.click();
@@ -35,7 +34,6 @@ export default function test() {
   if ( !toggle.called ) {
     throw new Error('toggle not called!');
   } else {
-    console.log('%ctest passed' + '%c: toggle was called',
-    'color: yellowgreen', '');
+    console.log('%ctest passed', 'color: yellowgreen; font-weight: bold;', 'toggle was called');
   }
 }
